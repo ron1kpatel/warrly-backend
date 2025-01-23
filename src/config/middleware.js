@@ -4,7 +4,8 @@ import express from "express";
 import config from "./config.js";
 import morgan from "morgan";
 import logger from "../logger/index.js";
-
+import './passport.js'
+import passport from "passport";
 const setupMiddlewares = (app) => {
   //cors
   app.use(
@@ -35,6 +36,10 @@ const setupMiddlewares = (app) => {
       },
     })
   );
+
+
+  app.use(passport.initialize())
+  
 };
 
 export default setupMiddlewares;
