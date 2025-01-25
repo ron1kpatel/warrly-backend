@@ -1,3 +1,5 @@
+import mongoose, { Schema } from "mongoose";
+
 const WarrantySchema = new Schema({
     // File Details
     file: {
@@ -7,7 +9,7 @@ const WarrantySchema = new Schema({
     },
   
     // Product Details
-    product_name: {
+    productName: {
       type: String,
       required: true
     },
@@ -16,23 +18,23 @@ const WarrantySchema = new Schema({
       required: true,
       min: 1
     },
-    unit_price: {
+    unitPrice: {
       type: Number,
       required: true,
       min: 0
     },
-    total_amount: {
+    totalAmount: {
       type: Number,
       required: true,
       min: 0
     },
   
     // Warranty Period
-    purchase_date: {
+    purchaseDate: {
       type: Date,
       required: true
     },
-    expiry_date: {
+    expiryDate: {
       type: Date,
       required: true,
       validate: {
@@ -44,15 +46,17 @@ const WarrantySchema = new Schema({
     },
   
     // Relationships
-    receipts: {
+    receipt: {
       type: Schema.Types.ObjectId,
       ref: 'Receipt'
     },
   
     // User Customizations
-    user_notes: String,
-    uploaded_at: { 
+    userNotes: String,
+    uploadedAt: { 
       type: Date, 
       default: Date.now 
     }
   });
+
+  export default mongoose.model('Warranty', WarrantySchema);
