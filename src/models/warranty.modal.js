@@ -1,14 +1,12 @@
 import mongoose, { Schema } from "mongoose";
 
 const WarrantySchema = new Schema({
-    // File Details
     file: {
       url: { type: String, required: true },
       type: { type: String, enum: ['pdf', 'image'], required: true },
       size: { type: Number, required: true }
     },
   
-    // Product Details
     productName: {
       type: String,
       required: true
@@ -29,7 +27,6 @@ const WarrantySchema = new Schema({
       min: 0
     },
   
-    // Warranty Period
     purchaseDate: {
       type: Date,
       required: true
@@ -45,13 +42,11 @@ const WarrantySchema = new Schema({
       }
     },
   
-    // Relationships
     receipt: {
       type: Schema.Types.ObjectId,
       ref: 'Receipt'
     },
   
-    // User Customizations
     userNotes: String,
     uploadedAt: { 
       type: Date, 

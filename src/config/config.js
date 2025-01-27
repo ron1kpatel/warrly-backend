@@ -10,6 +10,7 @@ const result = dotenv.config({
   path: path.resolve(__dirname, "../.env"),
 });
 
+
 // Check if the .env file was successfully loaded
 if (result.error) {
   console.error(
@@ -17,6 +18,7 @@ if (result.error) {
   );
   process.exit(1); // Exit the application
 } else {
+  console.log(process.env.CLIENT_ID)
   console.log("✅ .env file loaded successfully.");
 }
 
